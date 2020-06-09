@@ -18,4 +18,8 @@ $task->date=$date;
 $task->save();
 return $task;
     }
+    public function get(){
+        $records = task::all();
+        return response()->json($records);
+    }
 }

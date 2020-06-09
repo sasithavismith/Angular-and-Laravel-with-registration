@@ -23,4 +23,7 @@ server:string ='http://127.0.0.1:8000/';
 const newTask =new Task(title);
 return this.http.post<Task>(this.server+ 'add',newTask);
   }
+  getTasks():Observable<Task[]>{
+   return this.http.get<Task[]>(this.server +'get');
+  }
 }
