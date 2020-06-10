@@ -22,4 +22,11 @@ return $task;
         $records = task::all();
         return response()->json($records);
     }
+    public function delete(Request $request){
+        $id =$request->input('id');
+        $record =task:: find($id);
+        $record->delete();
+        $response =array('id'=>$id);
+        return $response;
+    }
 }

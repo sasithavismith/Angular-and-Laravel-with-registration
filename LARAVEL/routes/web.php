@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 Route::post('add', 'taskController@add');
 Route::get('get','taskController@get');
+Route::post('delete','taskController@delete');

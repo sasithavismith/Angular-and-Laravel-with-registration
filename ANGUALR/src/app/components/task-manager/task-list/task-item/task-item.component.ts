@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from 'src/app/Task';
+import { TaskService } from 'src/app/service/task.service';
 
 @Component({
   selector: 'app-task-item',
@@ -8,9 +9,14 @@ import { Task } from 'src/app/Task';
 })
 export class TaskItemComponent implements OnInit {
 @Input()task:Task;
-  constructor() { }
+  constructor(private taskService :TaskService) { }
 
   ngOnInit(): void {
   }
-
+  delete(){
+    console.log(this.task.id);
+    this.taskService.deleteTask(this.task.id).subscribe((data)=>{
+      console.log('task deleted: ', data.id);
+    })
+  }
 }
