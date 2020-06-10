@@ -3,7 +3,7 @@ import {Http, Headers, RequestOptions} from '@angular/http';
 import { from, Observable } from 'rxjs';
 import { Task } from '../Task';
 import {HttpClient} from '@angular/common/http';
-import { noUndefined } from '@angular/compiler/src/util';
+
 
 
 @Injectable({
@@ -35,5 +35,14 @@ return this.http.post<Task>(this.server+ 'add',newTask);
       date: new Date()
     };
     return this.http.post<Task>(this.server+ 'delete',newTask)
+  }
+  getOne(no):Observable<Task>{
+    const newTask ={
+      id:no,
+      title:'not set',
+      status:false,
+      date: new Date()
+    };
+    return this.http.post<Task>(this.server+'getone',newTask);
   }
 }

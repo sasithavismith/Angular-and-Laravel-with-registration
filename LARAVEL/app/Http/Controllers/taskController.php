@@ -29,4 +29,10 @@ return $task;
         $response =array('id'=>$id);
         return $response;
     }
+    public function getone(Request $request){
+        $id= $request->input('id');
+         
+        $record =task::find($id);
+        return response()->json($record);
+    }
 }
